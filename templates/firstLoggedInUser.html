@@ -1,0 +1,41 @@
+<body>
+	<div class = "row">
+		<div class = "col-md-12 text-right bg-warning">
+			<h1 style = "text-align:center"> Welcome to the Categories Page! </h1>
+			<p style = "margin-top:-50; margin-right:25"><span class="g-signin"
+              data-scope="openid email"
+              data-clientid="688649985311-1jjt7iqete0jjr8lcnbg5snjn5r4ck3h.apps.googleusercontent.com"
+              data-redirecturi="postmessage"
+              data-accesstype="offline"
+              data-cookiepolicy="single_host_origin"
+              data-callback="signInCallback"
+              data-approvalprompt="auto">
+            </span></p>
+            <p style ="margin-right:25"><fb:login-button scope="public_profile,email" onlogin="sendTokenToServer();">
+			<a href='javascript:sendTokenToServer()'>Login with Facebook</a></fb:login-button></p>
+		</div>
+	</div>
+   	<div>
+   		{% with messages = get_flashed_messages() %}
+   		{% if messages %}
+   		<ul>
+   			{% for message in messages %}
+ 		 		<li><strong>{{message}}</strong></li>
+ 	 		{% endfor %}
+ 	 	</ul>
+ 	 	{% endif %}
+ 	 	{% endwith %}
+  <br>
+    <br>
+    <div class = "row text-center">
+    <div class = "col-md-12 text-center">
+      <h1>You are the first ever to visit this site! Sign In to add the first ever category!!</h1>
+    </div>
+  </div>
+  <br>
+  <br>
+   <div class = "row">
+      <div class = "col-md-12 text-center">
+        <a href = "{{url_for('addNewCategory')}}"> <button class="btn btn-success">Add new Category</button> </a>
+      </div>
+    </div>
